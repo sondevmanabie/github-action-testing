@@ -19,4 +19,7 @@ jobs:
             - name: Check package version
               id: check
               uses: EndBug/version-check@v2.1.0
+              with: 
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
             - run: echo change= ${{steps.check.outputs.changed}} and version= ${{steps.check.outputs.version}}
