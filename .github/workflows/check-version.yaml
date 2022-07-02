@@ -17,9 +17,9 @@ jobs:
             - run: echo this is path ${{ github.workspace }}/package-1/package.json
 
             - name: Check package version
-              uses: thebongy/version-check@v1
+              uses: MontyD/package-json-updated-action@1.0.1
               id: check
               with:
                   file: ${{ github.workspace }}/package-1/package.json
 
-            - run: echo change= ${{steps.check.outputs.versionChanged}} and version= ${{steps.check.outputs.releaseVersion}}
+            - run: echo change= ${{steps.check.outputs.has-updated}} and version= ${{steps.check.outputs.current-package-version}}
