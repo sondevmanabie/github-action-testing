@@ -14,13 +14,11 @@ jobs:
               with:
                   token: ${{ secrets.GITHUB_TOKEN }}
             - uses: actions/setup-node@v3
-              with:
-                node-version: 14
               
             - run: echo this is path ${{ github.workspace }}/package-1/package.json
 
             - name: Check package version
-              uses: EndBug/version-check@v2.1.0
+              uses: flood-io/is-published-on-npm@v1
               id: check
 
-            - run: echo change= ${{steps.check.outputs.changed}} and version= ${{steps.check.outputs.version}}
+            - run: echo change= ${{steps.check.outputs.published}} and version= ${{steps.check.outputs.version}}
