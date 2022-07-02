@@ -17,9 +17,7 @@ jobs:
             - run: echo this is path ${{ github.workspace }}/package-1/package.json
 
             - name: Check package version
-              uses: MontyD/package-json-updated-action@1.0.1
+              uses: EndBug/version-check@v2.1.0
               id: check
-              with:
-                  path: package.json
 
-            - run: echo change= ${{steps.check.outputs.has-updated}} and version= ${{steps.check.outputs.current-package-version}}
+            - run: echo change= ${{steps.check.outputs.changed}} and version= ${{steps.check.outputs.version}}
