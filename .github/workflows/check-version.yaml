@@ -19,6 +19,4 @@ jobs:
             - name: Check package version
               id: check
               uses: EndBug/version-check@v2.1.0
-              with: 
-                  file-name: ${{ github.workspace }}/package-1/package.json
             - run: echo change= ${{steps.check.outputs.changed}} and version= ${{steps.check.outputs.version}}
