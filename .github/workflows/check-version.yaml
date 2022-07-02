@@ -20,6 +20,6 @@ jobs:
               uses: MontyD/package-json-updated-action@1.0.1
               id: check
               with:
-                  file: ${{ github.workspace }}/package-1/package.json
+                  path: ${{ github.workspace }}/package-1/package.json
 
             - run: echo change= ${{steps.check.outputs.has-updated}} and version= ${{steps.check.outputs.current-package-version}}
