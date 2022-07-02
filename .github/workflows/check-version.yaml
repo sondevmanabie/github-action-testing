@@ -17,7 +17,10 @@ jobs:
             - run: echo this is path ${{ github.workspace }}/package-1/package.json
 
             - name: Check package version
-              uses: EndBug/version-check@v2.1.0
+              uses: avides/actions-project-version-check@latest
               id: check
+              with: 
+                  token: ${{ secrets.GITHUB_TOKEN }}
+                  file-to-check: ${{ github.workspace }}/package-1/package.json
 
             - run: echo change= ${{steps.check.outputs.changed}} and version= ${{steps.check.outputs.version}}
