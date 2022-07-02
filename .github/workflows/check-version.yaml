@@ -17,9 +17,9 @@ jobs:
             - run: echo this is path ${{ github.workspace }}/package-1/package.json
 
             - name: Check package version
+              uses: thebongy/version-check@v1
               id: check
-              uses: EndBug/version-check@v2.1.0
-              with: 
-                  token: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  file: ${{ github.workspace }}/package-1/package.json
 
-            - run: echo change= ${{steps.check.outputs.changed}} and version= ${{steps.check.outputs.version}}
+            - run: echo change= ${{steps.check.outputs.versionChanged}} and version= ${{steps.check.outputs.releaseVersion}}
