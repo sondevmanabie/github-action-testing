@@ -17,7 +17,7 @@ jobs:
             - run: echo this is path ${{ github.workspace }}/package-1/package.json
 
             - name: Check package version
-              uses: PostHog/check-package-version@v2
+              uses: avides/actions-project-version-check@v1.3.0
               id: check
               with: 
                 file-to-check: package.json
