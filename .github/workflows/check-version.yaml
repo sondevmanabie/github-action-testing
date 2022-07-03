@@ -21,7 +21,7 @@ jobs:
               id: check
               with: 
                 token: ${{ secrets.GITHUB_TOKEN }}
-                file-to-check: package.json
+                file-to-check: ${{ github.workspace }}/package-1/package.json
 
             - run: echo change= ${{steps.check.outputs.published}} and version= ${{steps.check.outputs.version}}
             - run: echo this is path ${{ github.workspace }}/package-1/package.json
