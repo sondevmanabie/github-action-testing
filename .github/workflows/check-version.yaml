@@ -12,14 +12,17 @@ jobs:
         steps:
             - uses: actions/checkout@v3
               with:
-                  token: ${{ secrets.GITHUB_TOKEN }}
+                token: ${{ secrets.GITHUB_TOKEN }}
               
             - run: echo this is path ${{ github.workspace }}/package-1/package.json
 
             - name: Check package version
-              uses: thebongy/version-check@v1
+              uses: avides/actions-project-version-check@v1.3.0
               id: check
-              with:
-                  file: ${{ github.workspace }}/package-1/package.json
+              with: 
+                token: ${{ secrets.GITHUB_TOKEN }}
+                file-to-check: package-1/package.json
 
-            - run: echo change= ${{steps.check.outputs.versionChanged}} and version= ${{steps.check.outputs.releaseVersion}}
+            - run: echo change= ${{steps.check.outputs.published}} and version= ${{steps.check.outputs.version}}
+            - run: echo this is path ${{ github.workspace }}/package-1/package.json
+            - run: echo this is path ${{ github.workspace }}/package-1/package.json
